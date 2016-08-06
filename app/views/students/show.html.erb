@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<div> Name: <%= @student.name %> </div>
+<div> Email: <%= @student.email %> </div>
+<div> Github: <%= @student.github %> </div>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>

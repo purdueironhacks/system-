@@ -1,0 +1,25 @@
+Project:
+	name, web_url
+	belongs_to :student
+	has_many :grades
+	has_many :graders, through: :grades	
+
+Grade:
+	belongs_to :project
+	belongs_to :graders
+
+	usability_score: (0-10)
+	technical_score: (0-10)
+
+Grader:
+	name, email, type(e.g. technical, usability expert etc.)
+	has_many :grades
+	has_many :projects, through: :grades
+
+Student:
+	has_one :project
+
+	name:string
+	github:string
+	email:string	
+
