@@ -1,0 +1,36 @@
+<%= form_for([@project, @grade]) do |f| %>
+  <% if @grade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@grade.errors.count, "error") %> prohibited this grade from being saved:</h2>
+
+      <ul>
+      <% @grade.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.hidden_field :project_id %>
+  </div>
+  <div class="field">
+    <%= f.label :grader_id %><br>
+    <%= f.collection_select :grader_id, Grader.all, :id, :name, include_blank: true %>
+  </div>
+  <div class="field">
+    <%= f.label :usability_score %><br>
+    <%= f.number_field :usability_score %>
+  </div>
+  <div class="field">
+    <%= f.label :technical_score %><br>
+    <%= f.number_field :technical_score %>
+  </div>
+  <div class="field">
+    <%= f.label :phase %><br>
+    <%= f.select :phase, ["1st Phase", "2nd Phase", "3rd Phase", "Final Phase"] %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

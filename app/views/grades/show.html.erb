@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @grade.project.name %>
+</p>
+
+<p>
+  <strong>Project Owner:</strong>
+  <%= @grade.project.student.name %>
+</p>
+
+<p>
+  <strong>Grader:</strong>
+  <%= @grade.grader.name %>
+</p>
+
+<p>
+  <strong>Grader Expertise:</strong>
+  <%= @grade.grader.grader_type %>
+</p>
+
+<p>
+  <strong>Usability score:</strong>
+  <%= @grade.usability_score %>
+</p>
+
+<p>
+  <strong>Technical score:</strong>
+  <%= @grade.technical_score %>
+</p>
+
+<p>
+  <strong>Phase:</strong>
+  <%= @grade.phase %>
+</p>
+
+<%= link_to 'Edit', edit_project_grade_path(@project, @grade) %> |
+<%= link_to 'Back', project_grades_path(@project) %>

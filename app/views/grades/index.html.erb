@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Grades</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Project Student</th>
+      <th>Grader</th>
+      <th>Usability score</th>
+      <th>Technical score</th>
+      <th>Phase</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @grades.each do |grade| %>
+      <tr>
+        <td><%= grade.project.name %></td>
+        <td><%= grade.project.student.name %></td>
+        <td><%= grade.grader.name %></td>
+        <td><%= grade.usability_score %></td>
+        <td><%= grade.technical_score %></td>
+        <td><%= grade.phase %></td>
+        <td><%= link_to 'Show', project_grade_path(@project, grade) %></td>
+        <td><%= link_to 'Edit', edit_project_grade_path(@project, grade) %></td>
+        <td><%= link_to 'Destroy', [@project, grade], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Grade', new_project_grade_path(@project) %>

@@ -56,7 +56,7 @@ class GradersController < ApplicationController
   def destroy
     @grader.destroy
     respond_to do |format|
-      format.html { redirect_to graders_url, notice: 'Grader was successfully destroyed.' }
+      format.html { redirect_to project_graders_url(@project), notice: 'Grader was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
