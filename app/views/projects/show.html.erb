@@ -1,8 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<div> Name: <%= @project.name %> </div>
-<div> Web URL: <%= @project.web_url %> </div>
-<div> Owner/Student: <%= @project.student.name %> </div>
+<div>
+  <p>
+    <strong>Name:</strong>
+    <%= @project.name %>
+  </p>
+</div>
+<div>
+  <p>
+    <strong>Web URL:</strong>
+    <%= @project.web_url %>
+  </p>
+</div>
+<div>
+  <p>
+    <strong>Student:</strong>
+    <%= @project.student.name %>
+  </p>
+</div>
+<div>
+  <p>
+    <strong>Score 1st Phase:</strong>
+    <%= @project.calculate_score_for("1st Phase") %>
+  </p>
+</div>
+<div>
+  <p>
+    <strong>Score 2nd Phase:</strong>
+    <%= @project.calculate_score_for("2nd Phase") %>
+  </p>
+</div>
+<div>
+  <p>
+    <strong>Score 3rd Phase:</strong>
+    <%= @project.calculate_score_for("3rd Phase") %>
+  </p>
+</div>
+<div>
+  <p>
+    <strong>Score Final Phase:</strong>
+    <%= @project.calculate_score_for("Final Phase") %>
+  </p>
+</div>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<%= link_to 'Back', projects_path %> |
+<%= link_to 'See Grades', project_grades_path(@project) %>

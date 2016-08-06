@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Project</th>
-      <th>Project Student</th>
+      <th>Student</th>
       <th>Grader</th>
       <th>Usability score</th>
       <th>Technical score</th>
@@ -34,4 +34,6 @@
 
 <br>
 
-<%= link_to 'New Grade', new_project_grade_path(@project) %>
+<%= link_to 'New Grade', new_project_grade_path(@project) %> |
+
+<%= link_to 'View Project', project_path(@project) %>
