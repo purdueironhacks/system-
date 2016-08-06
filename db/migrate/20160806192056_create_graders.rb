@@ -3,7 +3,7 @@ class CreateGraders < ActiveRecord::Migration
     create_table :graders do |t|
       t.string :name
       t.string :email
-      t.string :type
+      t.string :grader_type
 
       t.timestamps null: false
     end
