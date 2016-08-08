@@ -6,18 +6,23 @@
 </p>
 
 <p>
-  <strong>Project Owner:</strong>
+  <strong>Project Student:</strong>
   <%= @grade.project.student.name %>
 </p>
 
 <p>
   <strong>Grader:</strong>
-  <%= @grade.grader.name %>
+  <%= @grade.grader.try(:name) %>
 </p>
 
 <p>
   <strong>Grader Expertise:</strong>
-  <%= @grade.grader.grader_type %>
+  <%= @grade.grader.try(:grader_type) %>
+</p>
+
+<p>
+  <strong>Grader Email:</strong>
+  <%= @grade.grader.try(:email) %>
 </p>
 
 <p>

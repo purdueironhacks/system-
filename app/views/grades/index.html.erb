@@ -5,12 +5,13 @@
 <table>
   <thead>
     <tr>
-      <th>Project</th>
-      <th>Student</th>
-      <th>Grader</th>
-      <th>Usability score</th>
-      <th>Technical score</th>
-      <th>Phase</th>
+      <th colspan="3">Project</th>
+      <th colspan="3">Student</th>
+      <th colspan="3">Grader Name</th>
+      <th colspan="3">Grader Email</th>
+      <th colspan="3">Usability score</th>
+      <th colspan="3">Technical score</th>
+      <th colspan="3">Phase</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,15 +19,16 @@
   <tbody>
     <% @grades.each do |grade| %>
       <tr>
-        <td><%= grade.project.name %></td>
-        <td><%= grade.project.student.name %></td>
-        <td><%= grade.grader.name %></td>
-        <td><%= grade.usability_score %></td>
-        <td><%= grade.technical_score %></td>
-        <td><%= grade.phase %></td>
-        <td><%= link_to 'Show', project_grade_path(@project, grade) %></td>
-        <td><%= link_to 'Edit', edit_project_grade_path(@project, grade) %></td>
-        <td><%= link_to 'Destroy', [@project, grade], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td colspan="3"><%= grade.project.name %></td>
+        <td colspan="3"><%= grade.project.student.name %></td>
+        <td colspan="3"><%= grade.grader.try(:name) %></td>
+        <td colspan="3"><%= grade.grader.try(:email) %></td>
+        <td colspan="3"><%= grade.usability_score %></td>
+        <td colspan="3"><%= grade.technical_score %></td>
+        <td colspan="3"><%= grade.phase %></td>
+        <td colspan="3"><%= link_to 'Show', project_grade_path(@project, grade) %></td>
+        <td colspan="3"><%= link_to 'Edit', edit_project_grade_path(@project, grade) %></td>
+        <td colspan="3"><%= link_to 'Destroy', [@project, grade], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,6 +36,6 @@
 
 <br>
 
-<%= link_to 'New Grade', new_project_grade_path(@project) %> |
+<%= link_to 'Grade This Project', new_project_grade_path(@project) %> |
 
 <%= link_to 'View Project', project_path(@project) %>

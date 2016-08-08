@@ -5,8 +5,8 @@ class GradesController < ApplicationController
   # GET /grades
   # GET /grades.json
   def index
-    @grades = Grade.all
     @project = Project.find(params[:project_id])
+    @grades = @project.grades
   end
 
   # GET /grades/1
