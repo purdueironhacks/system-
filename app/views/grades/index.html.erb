@@ -36,6 +36,7 @@
 
 <br>
 
-<%= link_to 'Grade This Project', new_project_grade_path(@project) %> |
+<% grade = Grade.where(project_id: @project.id, grader_id: current_grader.id).first %>
+<%= link_to 'Grade This Project', edit_project_grade_path(@project, grade) %> |
 
 <%= link_to 'View Project', project_path(@project) %>

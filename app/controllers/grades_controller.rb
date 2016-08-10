@@ -19,12 +19,9 @@ class GradesController < ApplicationController
     @grade = @project.grades.new
   end
 
-  # GET /grades/1/edit
   def edit
   end
 
-  # POST /grades
-  # POST /grades.json
   def create
     @grade = @project.grades.new(grade_params)
 
@@ -39,8 +36,6 @@ class GradesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /grades/1
-  # PATCH/PUT /grades/1.json
   def update
     respond_to do |format|
       if @grade.update(grade_params)
@@ -53,8 +48,6 @@ class GradesController < ApplicationController
     end
   end
 
-  # DELETE /grades/1
-  # DELETE /grades/1.json
   def destroy
     @grade.destroy
     respond_to do |format|
