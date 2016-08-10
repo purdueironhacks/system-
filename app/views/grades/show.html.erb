@@ -40,6 +40,9 @@
   <%= @grade.phase %>
 </p>
 
-<%= link_to 'Edit', edit_project_grade_path(@project, @grade) %> |
-<%= link_to 'Back', project_grades_path(@project) %>
+<% if Grade.where(project_id: @project.id, grader_id: current_grader.id).include? @grade %>
+    <%= link_to 'Edit', edit_project_grade_path(@project, @grade) %> |
+<% end %>
+
+<%= link_to 'Back', project_grades_path(@project) %> |
 <%= link_to 'View Project', project_path(@project) %>

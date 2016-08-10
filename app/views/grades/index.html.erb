@@ -27,8 +27,11 @@
         <td colspan="3"><%= grade.technical_score %></td>
         <td colspan="3"><%= grade.phase %></td>
         <td colspan="3"><%= link_to 'Show', project_grade_path(@project, grade) %></td>
-        <td colspan="3"><%= link_to 'Edit', edit_project_grade_path(@project, grade) %></td>
-        <td colspan="3"><%= link_to 'Destroy', [@project, grade], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if Grade.where(project_id: @project.id, grader_id: current_grader.id).include? grade %>
+            <td colspan="3"><%= link_to 'Edit', edit_project_grade_path(@project, grade) %></td>
+            <td colspan="3"><%= link_to 'Destroy', [@project, grade], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+
       </tr>
     <% end %>
   </tbody>
