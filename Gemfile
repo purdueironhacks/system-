@@ -18,4 +18,5 @@ group :development do
   gem 'sqlite3'
 end
 
+gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
