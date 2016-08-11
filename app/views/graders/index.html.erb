@@ -15,10 +15,10 @@
   <tbody>
     <% @graders.each do |grader| %>
       <tr>
-        <td><%= grader.name %></td>
+        <td><%= link_to grader.name, grader   %></td>
         <td><%= grader.email %></td>
         <td><%= grader.grader_type %></td>
-        <td><%= link_to 'Show', grader %></td>
+
         <% if current_grader == grader %>
             <td><%= link_to 'Edit', edit_grader_path(grader) %></td>
             <td><%= link_to 'Destroy', grader, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -30,5 +30,4 @@
 
 <br>
 
-<%= link_to 'New Grader', new_grader_path %> |
 <%= link_to 'Projects', projects_path %>

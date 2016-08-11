@@ -16,12 +16,9 @@
   <tbody>
     <% @students.each do |student| %>
       <tr>
-        <td colspan="3"><%= student.name %></td>
+        <td colspan="3"><%= link_to student.name, student %></td>
         <td colspan="3"><%= student.email %></td>
         <td colspan="3"><%= student.github %></td>
-        <td colspan="3"><%= link_to 'Show', student %></td>
-        <td colspan="3"><%= link_to 'Edit', edit_student_path(student) %></td>
-        <td colspan="3"><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,5 +26,4 @@
 
 <br>
 
-<%= link_to 'New Student', new_student_path %> |
 <%= link_to 'Projects', projects_path %>
