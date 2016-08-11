@@ -4,7 +4,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    if current_grader.present?
+      @projects = current_grader.projects
+    else
+      redirect_to new_grader_registration_path
+    end
   end
 
   # GET /projects/1
