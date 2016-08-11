@@ -10,5 +10,15 @@
       Please visit the following link to grade the project:
       <%= @project_url %>
     </p>
+    <p>
+      Project web URL:
+      <%= @project_web_url %>
+    </p>
+    <% if @grader.technical_expert? %>
+        <p>
+          Project Readme URL:
+          <%= @project_read_me_url %>
+        </p>
+    <% end %>
 </body>
 </html>
