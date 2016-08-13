@@ -5,15 +5,34 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <div id="user_nav">
-    <% if grader_signed_in? %>
-        Signed in as <%= current_grader.email %>. Not you?
-        <%= link_to "Sign out", destroy_grader_session_path, method: :delete %>
-    <% else %>
-        <%= link_to "Sign up", new_grader_registration_path %> or
-        <%= link_to "Sign in", new_grader_session_path %>
-    <% end %>
+
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li><%= link_to "Home", projects_path %></li>
+          </ul>
+        </div>
+        <div>
+          <% if grader_signed_in? %>
+              Signed in as <%= current_grader.email %>. Not you?
+              <%= link_to "Sign out", destroy_grader_session_path, method: :delete %>
+          <% else %>
+              <%= link_to "Sign up", new_grader_registration_path %> or
+              <%= link_to "Sign in", new_grader_session_path %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
+
 </head>
 <body>
 <p class="notice"><%= notice %></p>

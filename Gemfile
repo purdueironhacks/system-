@@ -20,3 +20,5 @@ end
 
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
+
+gem "twitter-bootstrap-rails"
