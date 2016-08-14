@@ -16,7 +16,7 @@ class Grade < ActiveRecord::Base
   def total_technical_score
     sum = 0
     (1..8).each do |index|
-      sum += send("tech_criteria_#{index}")
+      sum += send("tech_criteria_#{index}").to_f
     end
     sum * 12.5
   end
