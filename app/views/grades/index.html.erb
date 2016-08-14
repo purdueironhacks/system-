@@ -19,12 +19,12 @@
   <tbody>
     <% @grades.each do |grade| %>
       <tr>
-        <td colspan="3"><%= grade.project.name %></td>
+        <td colspan="3"><%= link_to grade.project.name, project_path(@project)%></td>
         <td colspan="3"><%= grade.project.student.name %></td>
         <td colspan="3"><%= grade.grader.try(:name) %></td>
         <td colspan="3"><%= grade.grader.try(:email) %></td>
-        <td colspan="3"><%= grade.usability_score %></td>
-        <td colspan="3"><%= grade.technical_score %></td>
+        <td colspan="3"><%= grade.total_usability_score %></td>
+        <td colspan="3"><%= grade.total_technical_score %></td>
         <td colspan="3"><%= grade.phase %></td>
         <td colspan="3"><%= link_to 'Show', project_grade_path(@project, grade) %></td>
         <% if Grade.where(project_id: @project.id, grader_id: current_grader.id).include? grade %>
@@ -37,11 +37,4 @@
   </tbody>
 </table>
 
-<br>
-
-<% grade = Grade.where(project_id: @project.id, grader_id: current_grader.id).first %>
-<% if grade %>
-    <%= link_to 'Grade This Project', edit_project_grade_path(@project, grade) %> |
-<% end %>
-
-<%= link_to 'View Project', project_path(@project) %>
+<%= link_to 'Submit New Grade', new_project_grade_path(@project) %>

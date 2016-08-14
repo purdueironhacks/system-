@@ -59,11 +59,15 @@
           <%= f.select :tech_criteria_8, [0, 1] %>
         </div>
     <% end %>
-  <div class="field">
-    <%= f.label :phase %><br>
-    <%= f.select :phase, ["1st Phase", "2nd Phase", "3rd Phase", "Final Phase"] %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+    <% if params[:action] == 'new' %>
+        <div class="field">
+          <%= f.label :phase %><br>
+          <%= f.select :phase, ["1st Phase", "2nd Phase", "3rd Phase", "Final Phase"] %>
+        </div>
+    <% end %>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
 <% end %>
