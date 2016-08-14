@@ -68,6 +68,22 @@ class GradesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def grade_params
-      params.require(:grade).permit(:project_id, :grader_id, :usability_score, :technical_score, :phase)
+      params
+        .require(:grade)
+        .permit(
+          :project_id,
+          :grader_id,
+          :usability_score,
+          :technical_score,
+          :phase,
+          :tech_criteria_1,
+          :tech_criteria_2,
+          :tech_criteria_3,
+          :tech_criteria_4,
+          :tech_criteria_5,
+          :tech_criteria_6,
+          :tech_criteria_7,
+          :tech_criteria_8
+        )
     end
 end

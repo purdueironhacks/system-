@@ -7,8 +7,13 @@ class Project < ActiveRecord::Base
   after_create :assign_random_grader
 
   def calculate_score_for(phase)
-    grades.where(phase: phase).pluck(:usability_score).compact.first.to_i +
-        grades.where(phase: phase).pluck(:technical_score).compact.first.to_i
+    grade = grades.where(phase: phase).first
+
+    if grade.present?
+      grade.total_technical_score + grade.total_usability_score
+    else
+      "Grade Unavailable"
+    end
   end
 
   private

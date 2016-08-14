@@ -26,10 +26,38 @@
     <% end %>
 
     <% if current_grader.technical_expert? %>
-      <div class="field">
-        <%= f.label :technical_score %><br>
-        <%= f.number_field :technical_score %>
-      </div>
+        <div class="field">
+        <%= f.label "#{Grade::CRITERIA_CODE_TO_DESC_MAP['tech_criteria_1']}: " %>
+        <%= f.select :tech_criteria_1, [0, 1] %>
+        </div>
+        <div class="field">
+        <%= f.label "#{Grade::CRITERIA_CODE_TO_DESC_MAP['tech_criteria_2']}: " %>
+          <%= f.select :tech_criteria_2, [0, 1] %>
+        </div>
+        <div class="field">
+          <%= f.label "#{Grade::CRITERIA_CODE_TO_DESC_MAP['tech_criteria_3']}: " %>
+          <%= f.select :tech_criteria_3, [0, 1] %>
+        </div>
+        <div class="field">
+          <%= f.label "#{Grade::CRITERIA_CODE_TO_DESC_MAP['tech_criteria_4']}: " %>
+          <%= f.select :tech_criteria_4, [0, 1] %>
+        </div>
+        <div class="field">
+          <%= f.label "#{Grade::CRITERIA_CODE_TO_DESC_MAP['tech_criteria_5']}: " %>
+          <%= f.select :tech_criteria_5, [0, 1] %>
+        </div>
+        <div class="field">
+          <%= f.label "#{Grade::CRITERIA_CODE_TO_DESC_MAP['tech_criteria_6']}: " %>
+          <%= f.select :tech_criteria_6, [0, 1] %>
+        </div>
+        <div class="field">
+          <%= f.label "#{Grade::CRITERIA_CODE_TO_DESC_MAP['tech_criteria_7']}: " %>
+          <%= f.select :tech_criteria_7, [0, 1] %>
+        </div>
+        <div class="field">
+          <%= f.label "#{Grade::CRITERIA_CODE_TO_DESC_MAP['tech_criteria_8']}: " %>
+          <%= f.select :tech_criteria_8, [0, 1] %>
+        </div>
     <% end %>
   <div class="field">
     <%= f.label :phase %><br>
