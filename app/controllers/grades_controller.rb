@@ -83,7 +83,18 @@ class GradesController < ApplicationController
           :tech_criteria_5,
           :tech_criteria_6,
           :tech_criteria_7,
-          :tech_criteria_8
+          :tech_criteria_8,
+          :non_tech_criteria_1,
+          :non_tech_criteria_2,
+          :non_tech_criteria_3,
+          :non_tech_criteria_4,
+          :non_tech_criteria_5,
+          :non_tech_criteria_6,
+          :non_tech_criteria_7,
+          :non_tech_criteria_8,
+          :non_tech_criteria_9,
+          :non_tech_criteria_10,
+          :non_tech_criteria_11
         )
     end
 end

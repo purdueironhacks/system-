@@ -7,6 +7,7 @@ class Project < ActiveRecord::Base
   after_create :assign_random_grader
 
   def calculate_score_for(phase)
+    # update this to calculate scores correctly
     grade = grades.where(phase: phase).first
 
     if grade.present?
