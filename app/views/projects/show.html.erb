@@ -27,25 +27,25 @@
 <div>
   <p>
     <strong>Score 1st Phase:</strong>
-    <%= @project.calculate_score_for("1st Phase") %>
+    <%= number_with_precision(@project.calculate_score_for("1st Phase"), :precision => 2) %>
   </p>
 </div>
 <div>
   <p>
     <strong>Score 2nd Phase:</strong>
-    <%= @project.calculate_score_for("2nd Phase") %>
+    <%= number_with_precision(@project.calculate_score_for("2nd Phase"), :precision => 2) %>
   </p>
 </div>
 <div>
   <p>
     <strong>Score 3rd Phase:</strong>
-    <%= @project.calculate_score_for("3rd Phase") %>
+    <%= number_with_precision(@project.calculate_score_for("3rd Phase"), :precision => 2) %>
   </p>
 </div>
 <div>
   <p>
     <strong>Score Final Phase:</strong>
-    <%= @project.calculate_score_for("Final Phase") %>
+    <%= number_with_precision(@project.calculate_score_for("Final Phase"), :precision => 2) %>
   </p>
 </div>
 

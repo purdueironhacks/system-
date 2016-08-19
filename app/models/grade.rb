@@ -50,4 +50,12 @@ class Grade < ActiveRecord::Base
 
     sum_1 + sum_2
   end
+
+  def technical_grade?
+    technical == true
+  end
+
+  def usability_grade?
+    usability == true
+  end
 end

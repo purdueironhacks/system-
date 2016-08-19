@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818031353) do
+ActiveRecord::Schema.define(version: 20160819012351) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 20160818031353) do
     t.integer  "grader_id"
     t.integer  "usability_score"
     t.integer  "technical_score"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "phase"
     t.integer  "tech_criteria_1"
     t.integer  "tech_criteria_2"
@@ -93,6 +93,8 @@ ActiveRecord::Schema.define(version: 20160818031353) do
     t.integer  "non_tech_criteria_9"
     t.integer  "non_tech_criteria_10"
     t.integer  "non_tech_criteria_11"
+    t.boolean  "technical",            default: false
+    t.boolean  "usability",            default: false
   end
 
   create_table "projects", force: :cascade do |t|

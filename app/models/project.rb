@@ -7,13 +7,25 @@ class Project < ActiveRecord::Base
   after_create :assign_random_grader
 
   def calculate_score_for(phase)
-    # update this to calculate scores correctly
-    grade = grades.where(phase: phase).first
+    all_grades = grades.where(phase: phase)
+    total_score = 0
+    technical_grade = all_grades.detect { |grade| grade.technical_grade? }
+    usability_grade = all_grades.detect { |grade| grade.usability_grade? }
 
-    if grade.present?
-      grade.total_technical_score + grade.total_usability_score
-    else
+    if technical_grade.present?
+      total_score += technical_grade.total_technical_score
+    end
+
+    if usability_grade.present?
+      total_score += usability_grade.total_usability_score
+    end
+
+    puts "total_score: #{total_score.inspect}"
+
+    if total_score < 0.001
       "Grade Unavailable"
+    else
+      total_score
     end
   end
 

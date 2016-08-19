@@ -25,15 +25,19 @@
   <%= @grade.grader.try(:email) %>
 </p>
 
-<p>
-  <strong>Usability score:</strong>
-  <%= @grade.total_usability_score %>
-</p>
+<% if @grade.technical_grade? %>
+    <p>
+      <strong>Technical score:</strong>
+      <%= number_with_precision(@grade.total_technical_score, :precision => 2) %>
+    </p>
+<% end %>
 
-<p>
-  <strong>Technical score:</strong>
-  <%= @grade.total_technical_score %>
-</p>
+<% if @grade.usability_grade? %>
+    <p>
+      <strong>Usability score:</strong>
+      <%= number_with_precision(@grade.total_usability_score, :precision => 2) %>
+    </p>
+<% end %>
 
 <p>
   <strong>Phase:</strong>

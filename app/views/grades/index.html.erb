@@ -23,8 +23,15 @@
         <td colspan="3"><%= grade.project.student.name %></td>
         <td colspan="3"><%= grade.grader.try(:name) %></td>
         <td colspan="3"><%= grade.grader.try(:email) %></td>
-        <td colspan="3"><%= grade.total_usability_score %></td>
-        <td colspan="3"><%= grade.total_technical_score %></td>
+        <% if grade.technical_grade? %>
+            <td colspan="3"> - - - </td>
+            <td colspan="3"><%= number_with_precision(grade.total_technical_score, :precision => 2) %></td>
+        <% end %>
+        <% if grade.usability_grade? %>
+            <td colspan="3"><%= number_with_precision(grade.total_usability_score, :precision => 2) %></td>
+            <td colspan="3"> - - - </td>
+        <% end %>
+
         <td colspan="3"><%= grade.phase %></td>
         <td colspan="3"><%= link_to 'Show', project_grade_path(@project, grade) %></td>
         <% if Grade.where(project_id: @project.id, grader_id: current_grader.id).include? grade %>

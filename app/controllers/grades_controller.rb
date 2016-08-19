@@ -2,15 +2,11 @@ class GradesController < ApplicationController
   before_action :set_grade, only: [:show, :edit, :update, :destroy]
   before_action :set_project
 
-  # GET /grades
-  # GET /grades.json
   def index
     @project = Project.find(params[:project_id])
-    @grades = @project.grades
+    @grades = @project.grades.includes(:grader).order('graders.email')
   end
 
-  # GET /grades/1
-  # GET /grades/1.json
   def show
   end
 
@@ -94,7 +90,9 @@ class GradesController < ApplicationController
           :non_tech_criteria_8,
           :non_tech_criteria_9,
           :non_tech_criteria_10,
-          :non_tech_criteria_11
+          :non_tech_criteria_11,
+          :technical,
+          :usability
         )
     end
 end

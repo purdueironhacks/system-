@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     if current_grader.present?
-      @projects = current_grader.projects
+      @projects = current_grader.projects.uniq
     else
       redirect_to new_grader_registration_path
     end
