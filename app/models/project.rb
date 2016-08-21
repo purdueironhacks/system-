@@ -17,10 +17,8 @@ class Project < ActiveRecord::Base
     end
 
     if usability_grade.present?
-      total_score += usability_grade.total_usability_score
+      total_score += (usability_grade.total_user_experience_score + usability_grade.total_info_visualization_score)
     end
-
-    puts "total_score: #{total_score.inspect}"
 
     if total_score < 0.001
       "Grade Unavailable"

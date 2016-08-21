@@ -57,7 +57,7 @@
 
     <% if current_grader.user_interface_expert? %>
         <%= f.hidden_field :usability, value: true %>
-
+        <h3> User Experience </h3>
         <div class="field">
           <%= f.label "#{Grade::CRITERIA_CODE_TO_DESC_MAP['non_tech_criteria_1']}: " %>
           <%= f.select :non_tech_criteria_1, [0, 1] %>
@@ -78,6 +78,7 @@
           <%= f.label "#{Grade::CRITERIA_CODE_TO_DESC_MAP['non_tech_criteria_5']}: " %>
           <%= f.select :non_tech_criteria_5, [0, 1] %>
         </div>
+        <h3> Info Visualization </h3>
         <div class="field">
           <%= f.label "#{Grade::CRITERIA_CODE_TO_DESC_MAP['non_tech_criteria_6']}: " %>
           <%= f.select :non_tech_criteria_6, [0, 1, 2, 3] %>

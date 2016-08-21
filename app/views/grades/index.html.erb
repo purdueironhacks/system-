@@ -9,8 +9,9 @@
       <th colspan="3">Student</th>
       <th colspan="3">Grader Name</th>
       <th colspan="3">Grader Email</th>
-      <th colspan="3">Usability score</th>
-      <th colspan="3">Technical score</th>
+      <th colspan="3">User Experience Score</th>
+      <th colspan="3">Info Visualization Score</th>
+      <th colspan="3">Technical Score</th>
       <th colspan="3">Phase</th>
       <th colspan="3"></th>
     </tr>
@@ -25,10 +26,12 @@
         <td colspan="3"><%= grade.grader.try(:email) %></td>
         <% if grade.technical_grade? %>
             <td colspan="3"> - - - </td>
+            <td colspan="3"> - - - </td>
             <td colspan="3"><%= number_with_precision(grade.total_technical_score, :precision => 2) %></td>
         <% end %>
         <% if grade.usability_grade? %>
-            <td colspan="3"><%= number_with_precision(grade.total_usability_score, :precision => 2) %></td>
+            <td colspan="3"><%= number_with_precision(grade.total_user_experience_score, :precision => 2) %></td>
+            <td colspan="3"><%= number_with_precision(grade.total_info_visualization_score, :precision => 2) %></td>
             <td colspan="3"> - - - </td>
         <% end %>
 

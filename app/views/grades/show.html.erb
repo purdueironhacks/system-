@@ -34,8 +34,12 @@
 
 <% if @grade.usability_grade? %>
     <p>
-      <strong>Usability score:</strong>
-      <%= number_with_precision(@grade.total_usability_score, :precision => 2) %>
+      <strong>User Experience Score</strong>
+      <%= number_with_precision(@grade.total_user_experience_score, :precision => 2) %>
+    </p>
+    <p>
+      <strong>Info Visualization Score</strong>
+      <%= number_with_precision(@grade.total_info_visualization_score, :precision => 2) %>
     </p>
 <% end %>
 

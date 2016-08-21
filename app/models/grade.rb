@@ -32,23 +32,23 @@ class Grade < ActiveRecord::Base
     sum * 12.5
   end
 
-  def total_usability_score
+  def total_user_experience_score
     sum_1 = 0
     (1..5).each do |index|
       sum_1 += send("non_tech_criteria_#{index}").to_f
     end
 
-    sum_1 = (sum_1 * 20.0)
+    sum_1 * 20.0
+  end
 
+  def total_info_visualization_score
     sum_2 = 0
     (6..11).each do |index|
       value = send("non_tech_criteria_#{index}").to_f
       sum_2 += ((value - 4) * (-1))
     end
 
-    sum_2 = (sum_2 * 100) / 24
-
-    sum_1 + sum_2
+    (sum_2 * 100) / 24
   end
 
   def technical_grade?
