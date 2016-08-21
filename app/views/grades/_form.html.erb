@@ -71,7 +71,7 @@
         </div>
     <% end %>
 
-    <% if current_grader.user_interface_expert? %>
+    <% if current_grader.user_interface_expert? && @grade.novelty_fields_present? %>
         <%= f.hidden_field :usability, value: true %>
         <h3> User Experience </h3>
         <div class="field">
@@ -117,18 +117,59 @@
         </div>
         <div class="field">
           <%= f.label "#{Grade::CRITERIA_CODE_TO_DESC_MAP['non_tech_criteria_11']}: " %>
-          <%= f.select :non_tech_criteria_11, (0..3) %>
+          <%= f.select :non_tech_criteria_11, (0..3), { include_blank: true } %>
         </div>
-    <% end %>
 
-    <% if params[:action] == 'new' %>
-        <div class="field">
-          <%= f.label :phase %><br>
-          <%= f.select :phase, ["1st Phase", "2nd Phase", "3rd Phase", "Final Phase"] %>
+        <h3> Novelty Scores </h3>
+        <% if @grade.novelty_1_text.present? %>
+            <div class="field">
+              <p><strong><%= @grade.novelty_1_text %></strong></p>
+              <br>
+              <%= f.label "Relevance to the problem: " %>
+              <%= f.select :novelty_1_score, [nil, 0, 1, 2, 3] %>
+              <%= f.label "Design: " %>
+              <%= f.select :novelty_1_design_score, [nil, 0, 1, 2, 3] %>
+              <%= f.label "Functionality: " %>
+              <%= f.select :novelty_1_functionality_score, [nil, 0, 1, 2, 3] %>
+            </div>
+        <% end %>
+
+        <% if @grade.novelty_2_text.present? %>
+            <div class="field">
+              <p><strong><%= @grade.novelty_2_text %></strong></p>
+              <br>
+              <%= f.label "Relevance to the problem: " %>
+              <%= f.select :novelty_2_score, [nil, 0, 1, 2, 3] %>
+              <%= f.label "Design: " %>
+              <%= f.select :novelty_2_design_score, [nil, 0, 1, 2, 3] %>
+              <%= f.label "Functionality: " %>
+              <%= f.select :novelty_2_functionality_score, [nil, 0, 1, 2, 3] %>
+            </div>
+        <% end %>
+
+        <% if @grade.novelty_3_text.present? %>
+            <div class="field">
+              <p><strong><%= @grade.novelty_3_text %></strong></p>
+              <br>
+              <%= f.label "Relevance to the problem: " %>
+              <%= f.select :novelty_3_score, [nil, 0, 1, 2, 3] %>
+              <%= f.label "Design: " %>
+              <%= f.select :novelty_3_design_score, [nil, 0, 1, 2, 3] %>
+              <%= f.label "Functionality: " %>
+              <%= f.select :novelty_3_functionality_score, [nil, 0, 1, 2, 3] %>
+            </div>
+        <% end %>
+        <% if params[:action] == 'new' %>
+            <div class="field">
+              <%= f.label :phase %><br>
+              <%= f.select :phase, ["1st Phase", "2nd Phase", "3rd Phase", "Final Phase"] %>
+            </div>
+        <% end %>
+
+        <div class="actions">
+          <%= f.submit %>
         </div>
+    <% else %>
+        <h5> Not available to grade yet! </h5>
     <% end %>
-
-      <div class="actions">
-        <%= f.submit %>
-      </div>
 <% end %>

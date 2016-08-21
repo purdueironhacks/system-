@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160821025905) do
+ActiveRecord::Schema.define(version: 20160821182226) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 20160821025905) do
     t.integer  "grader_id"
     t.integer  "usability_score"
     t.integer  "technical_score"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
     t.string   "phase"
     t.integer  "tech_criteria_1"
     t.integer  "tech_criteria_2"
@@ -93,11 +93,31 @@ ActiveRecord::Schema.define(version: 20160821025905) do
     t.integer  "non_tech_criteria_9"
     t.integer  "non_tech_criteria_10"
     t.integer  "non_tech_criteria_11"
-    t.boolean  "technical",            default: false
-    t.boolean  "usability",            default: false
-    t.integer  "major_errors",         default: 0
-    t.integer  "moderate_errors",      default: 0
-    t.integer  "minor_errors",         default: 0
+    t.boolean  "technical",                     default: false
+    t.boolean  "usability",                     default: false
+    t.integer  "major_errors",                  default: 0
+    t.integer  "moderate_errors",               default: 0
+    t.integer  "minor_errors",                  default: 0
+    t.text     "novelty_1_text"
+    t.text     "novelty_2_text"
+    t.text     "novelty_3_text"
+    t.text     "novelty_4_text"
+    t.text     "novelty_5_text"
+    t.integer  "novelty_1_score"
+    t.integer  "novelty_2_score"
+    t.integer  "novelty_3_score"
+    t.integer  "novelty_4_score"
+    t.integer  "novelty_5_score"
+    t.integer  "novelty_1_design_score"
+    t.integer  "novelty_2_design_score"
+    t.integer  "novelty_3_design_score"
+    t.integer  "novelty_4_design_score"
+    t.integer  "novelty_5_design_score"
+    t.integer  "novelty_1_functionality_score"
+    t.integer  "novelty_2_functionality_score"
+    t.integer  "novelty_3_functionality_score"
+    t.integer  "novelty_4_functionality_score"
+    t.integer  "novelty_5_functionality_score"
   end
 
   create_table "projects", force: :cascade do |t|

@@ -27,6 +27,10 @@ class Project < ActiveRecord::Base
     end
   end
 
+  def usability_grader
+    graders.where(grader_type: "User Interface Expert").first
+  end
+
   private
 
   def assign_random_grader

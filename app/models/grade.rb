@@ -51,6 +51,29 @@ class Grade < ActiveRecord::Base
     (sum_2 * 100) / 24
   end
 
+  def total_novelty_score
+    sum = 0
+    (1..5).each do |index|
+      relevance_score = send("novelty_#{index}_score")
+      design_score = send("novelty_#{index}_design_score")
+      functionality_score = send("novelty_#{index}_functionality_score")
+      sum += apply_novelty_formula(relevance_score) + apply_novelty_formula(design_score) + apply_novelty_formula(functionality_score)
+    end
+    sum
+  end
+
+  def apply_novelty_formula(value)
+    if value.present?
+      (value - 4) * (-1)
+    else
+      0
+    end
+  end
+
+  def novelty_fields_present?
+    (1..5).any? { |index| send("novelty_#{index}_text").present? }
+  end
+
   def total_errors
     (major_errors * 3) + (moderate_errors * 2) + minor_errors
   end

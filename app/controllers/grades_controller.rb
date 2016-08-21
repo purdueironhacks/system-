@@ -10,7 +10,6 @@ class GradesController < ApplicationController
   def show
   end
 
-  # GET /grades/new
   def new
     @grade = @project.grades.new
   end
@@ -19,6 +18,24 @@ class GradesController < ApplicationController
   end
 
   def create
+    @grade = @project.grades.new(grade_params)
+
+    respond_to do |format|
+      if @grade.save
+        format.html { redirect_to project_grade_path(@project, @grade), notice: 'Grade was successfully created.' }
+        format.json { render :show, status: :created, location: @grade }
+      else
+        format.html { render :new }
+        format.json { render json: @grade.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def new_novelty_fields
+    @grade = @project.grades.new
+  end
+
+  def create_novelty_fields
     @grade = @project.grades.new(grade_params)
 
     respond_to do |format|
@@ -95,7 +112,27 @@ class GradesController < ApplicationController
           :usability,
           :major_errors,
           :moderate_errors,
-          :minor_errors
+          :minor_errors,
+          :novelty_1_text,
+          :novelty_2_text,
+          :novelty_3_text,
+          :novelty_4_text,
+          :novelty_5_text,
+          :novelty_1_score,
+          :novelty_2_score,
+          :novelty_3_score,
+          :novelty_4_score,
+          :novelty_5_score,
+          :novelty_1_design_score,
+          :novelty_2_design_score,
+          :novelty_3_design_score,
+          :novelty_4_design_score,
+          :novelty_5_design_score,
+          :novelty_1_functionality_score,
+          :novelty_2_functionality_score,
+          :novelty_3_functionality_score,
+          :novelty_4_functionality_score,
+          :novelty_5_functionality_score
         )
     end
 end
