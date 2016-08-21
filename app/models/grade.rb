@@ -29,7 +29,7 @@ class Grade < ActiveRecord::Base
     (1..8).each do |index|
       sum += send("tech_criteria_#{index}").to_f
     end
-    sum * 12.5
+    (sum * 12.5) - total_errors
   end
 
   def total_user_experience_score
@@ -49,6 +49,10 @@ class Grade < ActiveRecord::Base
     end
 
     (sum_2 * 100) / 24
+  end
+
+  def total_errors
+    (major_errors * 3) + (moderate_errors * 2) + minor_errors
   end
 
   def technical_grade?

@@ -92,7 +92,10 @@ class GradesController < ApplicationController
           :non_tech_criteria_10,
           :non_tech_criteria_11,
           :technical,
-          :usability
+          :usability,
+          :major_errors,
+          :moderate_errors,
+          :minor_errors
         )
     end
 end

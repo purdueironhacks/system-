@@ -27,7 +27,7 @@
 
 <% if @grade.technical_grade? %>
     <p>
-      <strong>Technical score:</strong>
+      <strong>Technical Score:</strong>
       <%= number_with_precision(@grade.total_technical_score, :precision => 2) %>
     </p>
 <% end %>

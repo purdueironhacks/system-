@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160819012351) do
+ActiveRecord::Schema.define(version: 20160821025905) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -95,6 +95,9 @@ ActiveRecord::Schema.define(version: 20160819012351) do
     t.integer  "non_tech_criteria_11"
     t.boolean  "technical",            default: false
     t.boolean  "usability",            default: false
+    t.integer  "major_errors",         default: 0
+    t.integer  "moderate_errors",      default: 0
+    t.integer  "minor_errors",         default: 0
   end
 
   create_table "projects", force: :cascade do |t|
