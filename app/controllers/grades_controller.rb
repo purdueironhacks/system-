@@ -40,6 +40,7 @@ class GradesController < ApplicationController
 
     respond_to do |format|
       if @grade.save
+        GraderMailer.project_assigned_email(@project.usability_grader, @project.id, @grade.id).deliver_now
         format.html { redirect_to project_grade_path(@project, @grade), notice: 'Grade was successfully created.' }
         format.json { render :show, status: :created, location: @grade }
       else

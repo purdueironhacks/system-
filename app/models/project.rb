@@ -37,7 +37,7 @@ class Project < ActiveRecord::Base
     technical_expert = find_random_grader(type: "Technical Expert")
     user_interface_expert = find_random_grader(type: "User Interface Expert")
     self.graders << technical_expert << user_interface_expert
-    send_email_to_graders([technical_expert, user_interface_expert])
+    send_email_to_graders([technical_expert])
   end
 
   def find_random_grader(type: type)

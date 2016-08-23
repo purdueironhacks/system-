@@ -69,6 +69,16 @@
           <%= f.label :minor_errors %>
           <%= f.select :minor_errors, (0..10) %>
         </div>
+        <% if params[:action] == 'new' %>
+            <div class="field">
+              <%= f.label :phase %><br>
+              <%= f.select :phase, ["1st Phase", "2nd Phase", "3rd Phase", "Final Phase"] %>
+            </div>
+        <% end %>
+
+        <div class="actions">
+          <%= f.submit %>
+        </div>
     <% end %>
 
     <% if current_grader.user_interface_expert? && @grade.novelty_fields_present? %>
@@ -169,7 +179,7 @@
         <div class="actions">
           <%= f.submit %>
         </div>
-    <% else %>
+    <% elsif current_grader.user_interface_expert? %>
         <h5> Not available to grade yet! </h5>
     <% end %>
 <% end %>

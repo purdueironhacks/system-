@@ -7,17 +7,23 @@
     <h3>You are assigned to grade new project!</h3>
 
     <p>
+      Project Web URL:
+      <%= @project_web_url %>
+    </p>
+
+    <% if @grader.technical_expert? %>
+    <p>
       Please visit the following link to grade the project:
       <%= @project_url %>
     </p>
     <p>
-      Project web URL:
-      <%= @project_web_url %>
+      Project Readme URL:
+      <%= @project_read_me_url %>
     </p>
-    <% if @grader.technical_expert? %>
+    <% elsif @grader.user_interface_expert? %>
         <p>
-          Project Readme URL:
-          <%= @project_read_me_url %>
+          Please visit the following link to grade the project:
+          <%= @grade_edit_url %>
         </p>
     <% end %>
 </body>
