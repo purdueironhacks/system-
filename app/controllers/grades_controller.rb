@@ -4,7 +4,7 @@ class GradesController < ApplicationController
 
   def index
     @project = Project.find(params[:project_id])
-    @grades = @project.grades.includes(:grader).order('graders.email')
+    @grades = @project.grades.where.not(phase: nil).includes(:grader).order('graders.email')
   end
 
   def show
